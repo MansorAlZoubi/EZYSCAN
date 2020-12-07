@@ -1,4 +1,4 @@
-import 'package:ezy_scan/EnterYourCode.dart';
+import 'package:ezy_scan/Sigin.dart';
 import 'package:flutter/material.dart';
 class Password extends StatefulWidget {
   @override
@@ -9,6 +9,8 @@ class _PasswordState extends State<Password> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      resizeToAvoidBottomPadding: false,
+
       appBar: AppBar(
         backgroundColor: Color(0xFF5f6f2e),
         title: Text('EZY SCAN',
@@ -58,7 +60,7 @@ class _PasswordState extends State<Password> {
                       style: TextStyle(
                           fontWeight: FontWeight.bold,
                           fontSize: 60.0,
-                          color: Colors.white54
+                          color: Colors.white
                       ),
                     ),
                   ),
@@ -70,7 +72,7 @@ class _PasswordState extends State<Password> {
                 ),
                 onTap: (){
                   Navigator.push(context,MaterialPageRoute(builder: (context){
-                    return Code();
+                    return Home();
                   })
                   );
                 },

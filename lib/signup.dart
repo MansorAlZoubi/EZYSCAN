@@ -23,57 +23,29 @@ class _signupState extends State<signup> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      resizeToAvoidBottomPadding: false,
+
       appBar: AppBar(
         backgroundColor: Color(0xFF5f6f2e),
 
-        title: Text('EZY SCAN'),
+        title: Text('EZY SCAN',),
       ),
       body: SafeArea(
 
-        child: Container(
-
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.center,
-            mainAxisAlignment: MainAxisAlignment.end,
-            children: <Widget>[
-              Row(
-                mainAxisAlignment:MainAxisAlignment.start ,
-                crossAxisAlignment: CrossAxisAlignment.end,
-                children: <Widget>[
-                  Padding(
-                    padding: const EdgeInsets.only(left: 10),
-                    child: CircleAvatar(
-                      child: Image.asset('Image/ezy-scan - Copy.png'),
-                      radius: 60.0,
-                      backgroundColor: Colors.white,
-                    ),
-                  ),
-                  SizedBox(
-                    width: 100.0,
-                    child: TextLiquidFill(
-                      text: 'EZY-SCAN',
-                      waveColor: Color(0xFF014133),
-                      boxBackgroundColor: Color(0xFF5f6f2e),
-                      textStyle: TextStyle(
-                        fontSize: 30.0,
-                        fontWeight: FontWeight.bold,
-                      ),
-                      boxHeight: 100.0,
-                    ),
-                  )
-                ],
-              ),
-              SizedBox(
-                height: 10,
-              ),
-              Column(
-                mainAxisAlignment: MainAxisAlignment.start,
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.end,
+          children: [
+            Expanded(
+              flex: 2,
+              child: Column(
                 crossAxisAlignment: CrossAxisAlignment.center,
+                mainAxisAlignment: MainAxisAlignment.start,
                 children: <Widget>[
+                  Image.asset('Image/ezy-scan - Copy.png',height: MediaQuery.of(context).size.width*0.6,),
                   Card(
-                    margin: EdgeInsets.symmetric(vertical: 10.0,horizontal: 25.0),
+                    margin: EdgeInsets.symmetric(vertical: MediaQuery.of(context).size.width*0.01,horizontal:MediaQuery.of(context).size.width*0.07),
                     shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(10.0),
+                      borderRadius: BorderRadius.circular(MediaQuery.of(context).size.width*10.0),
                     ),
                     child: ListTile(
                       leading:Icon(FontAwesomeIcons.heartbeat,
@@ -93,14 +65,11 @@ class _signupState extends State<signup> {
                     ),
                   ),
 
-                  SizedBox(
-                    width: 5.0,
-                    height: 5.0,
-                  ),
+
                   Card(
-                    margin: EdgeInsets.symmetric(vertical: 10.0,horizontal: 25.0),
+                    margin: EdgeInsets.symmetric(vertical: MediaQuery.of(context).size.width*0.01,horizontal:MediaQuery.of(context).size.width*0.07),
                     shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(10.0),
+                      borderRadius: BorderRadius.circular(MediaQuery.of(context).size.width*10.0),
                     ),
                     child: ListTile(
                       leading: Icon(FontAwesomeIcons.heart,
@@ -119,14 +88,11 @@ class _signupState extends State<signup> {
                       ),
                     ),
                   ),
-                  SizedBox(
-                    width: 5.0,
-                    height: 5.0,
-                  ),
+
                   Card(
-                    margin: EdgeInsets.symmetric(vertical: 10.0,horizontal: 25.0),
+                    margin: EdgeInsets.symmetric(vertical: MediaQuery.of(context).size.width*0.01,horizontal:MediaQuery.of(context).size.width*0.07),
                     shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(10.0),
+                      borderRadius: BorderRadius.circular(MediaQuery.of(context).size.width*10.0),
                     ),
                     child: ListTile(
                       leading: Icon(Icons.mail,
@@ -145,14 +111,11 @@ class _signupState extends State<signup> {
                       ),
                     ),
                   ),
-                  SizedBox(
-                    width: 5.0,
-                    height: 5.0,
-                  ),
+
                   Card(
-                    margin: EdgeInsets.symmetric(vertical: 10.0,horizontal: 25.0),
+                    margin: EdgeInsets.symmetric(vertical: MediaQuery.of(context).size.width*0.01,horizontal:MediaQuery.of(context).size.width*0.07),
                     shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(10.0),
+                      borderRadius: BorderRadius.circular(MediaQuery.of(context).size.width*10.0),
                     ),
                     child: ListTile(
                       leading: Icon(Icons.vpn_key_outlined,
@@ -171,91 +134,74 @@ class _signupState extends State<signup> {
                       ),
                     ),
                   ),
+
+
+                  Container(
+                    child: Row(
+                      crossAxisAlignment: CrossAxisAlignment.end,
+                      mainAxisAlignment: MainAxisAlignment.end,
+                      children: <Widget>[
+                        Expanded(child:ReusableCard(
+                          onprased: (){
+                            setState(() {
+                              oopGender=Gender.mael;
+                            });
+                          },
+                          color:oopGender==Gender.mael ? kActiveCardColour:kCnactiveCardcolor,
+
+                          cardChild:IconContent(
+                            icon: FontAwesomeIcons.mars,
+                            labl: 'Male',
+                          ),
+                        ) ,
+                        ),
+                        Expanded(child:ReusableCard(
+                          onprased: (){
+                            setState(() {
+                              oopGender=Gender.famel;
+                            });
+                          },
+                          color:oopGender==Gender.famel ? kActiveCardColour:kCnactiveCardcolor,
+                          cardChild:IconContent(
+                            icon: FontAwesomeIcons.venus,
+                            labl: 'Female',
+                          ),
+                        ) ,
+                        ),
+                      ],
+                    ),
+                  ),
+
+
                 ],
-              ),
 
-              SizedBox(
-                //width: 30.0,
-                height: 30.0,
               ),
-              Container(
-                child: Row(
-                  crossAxisAlignment: CrossAxisAlignment.end,
-                  mainAxisAlignment: MainAxisAlignment.end,
-                  children: <Widget>[
-                    Expanded(child:ReusableCard(
-                      onprased: (){
-                        setState(() {
-                          oopGender=Gender.mael;
-                        });
-                      },
-                      color:oopGender==Gender.mael ? kActiveCardColour:kCnactiveCardcolor,
-
-                      cardChild:IconContent(
-                        icon: FontAwesomeIcons.mars,
-                        labl: 'Male',
-                      ),
-                    ) ,
-                    ),
-                    Expanded(child:ReusableCard(
-                      onprased: (){
-                        setState(() {
-                          oopGender=Gender.famel;
-                        });
-                      },
-                      color:oopGender==Gender.famel ? kActiveCardColour:kCnactiveCardcolor,
-                      cardChild:IconContent(
-                        icon: FontAwesomeIcons.venus,
-                        labl: 'Female',
-                      ),
-                    ) ,
-                    ),
-                  ],
+            ),
+            SizedBox(height: 10,),
+            GestureDetector(
+              child: Container(
+                child:Center( child: Text('Sign Up',
+                  style: TextStyle(
+                    fontWeight: FontWeight.bold,
+                    fontSize: 80.0,
+                  ),
+                ),
+                ),
+                width: double.infinity,
+                decoration: BoxDecoration(
+                    color: Color(0xFF9bcd9b),
+                    borderRadius:BorderRadius.only( topLeft: Radius.circular(MediaQuery.of(context).size.width*0.010),topRight: Radius.circular(MediaQuery.of(context).size.width*0.010)  )
                 ),
               ),
-              // SizedBox(
-              //   height:49 ,
-              // ),
-              Column(
-                mainAxisAlignment: MainAxisAlignment.end,
-                crossAxisAlignment: CrossAxisAlignment.center,
-                children: <Widget>[
-                  GestureDetector(
-                      child: Container(
+              onTap: (){
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => Home()),
+                );
+              },
 
-                        child: Center(
-                          child: Text('CreateAccount',
-                            style: TextStyle(
-                                fontWeight: FontWeight.bold,
-                                fontSize: 53.0,
-                                color: Colors.white
-                            ),
-                          ),
-                        ),
-                        // margin: EdgeInsets.only(top: 8),
-                        // padding: EdgeInsets.all(8),
-                        width: double.infinity,
-                        decoration: BoxDecoration(
-                            color: Color(0xFF9bcd9b),
-                            borderRadius:BorderRadius.only( topLeft: Radius.circular(7),topRight: Radius.circular(7)  )
-                        ),
-                      ),
-
-                      onTap: () {
-                        Navigator.push(context, MaterialPageRoute(builder:(context) {
-                          return Home();
-                        },
-                        ),
-                        );
-                      }
-                  ),
-                ],
-              ),
-
-            ],
-
-          ),
-
+            ),
+          ],
         ),
 
       ),
@@ -275,10 +221,10 @@ class ReusableCard extends StatelessWidget {
       onTap: onprased,
       child: Container(
         child: cardChild,
-        margin: EdgeInsets.all(9.0),
+        margin: EdgeInsets.all(MediaQuery.of(context).size.width*0.01),
         decoration: BoxDecoration(
           color:color ,
-          borderRadius: BorderRadius.circular(10.0),
+          borderRadius: BorderRadius.circular(MediaQuery.of(context).size.width*10.0),
         ),
       ),
     );
