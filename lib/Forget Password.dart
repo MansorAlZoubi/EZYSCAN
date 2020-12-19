@@ -1,11 +1,16 @@
 import 'package:ezy_scan/Sigin.dart';
 import 'package:flutter/material.dart';
+
+import 'auth.dart';
 class Password extends StatefulWidget {
   @override
   _PasswordState createState() => _PasswordState();
 }
 
 class _PasswordState extends State<Password> {
+  TextEditingController email = new TextEditingController();
+  Auth auth = new Auth();
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -38,6 +43,7 @@ class _PasswordState extends State<Password> {
                           size: 40.0,
                         ),
                         title: TextField(
+                          controller: email,
                           decoration: InputDecoration(
                             border: InputBorder.none,
                             hintText: 'Enter Your Email',
@@ -71,6 +77,7 @@ class _PasswordState extends State<Password> {
                   ),
                 ),
                 onTap: (){
+                  auth.resetPassword(email.text);
                   Navigator.push(context,MaterialPageRoute(builder: (context){
                     return Home();
                   })

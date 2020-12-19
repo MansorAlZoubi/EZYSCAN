@@ -1,9 +1,13 @@
+import 'package:ezy_scan/Sigin.dart';
 import 'package:ezy_scan/signup.dart';
 import 'package:flutter/material.dart';
-void main() {
+import 'package:firebase_core/firebase_core.dart';
+
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await Firebase.initializeApp();
   runApp(MyApp());
 }
-
 class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
@@ -15,7 +19,7 @@ class MyApp extends StatelessWidget {
       ),
 
       home: Scaffold(
-        body: signup(),
+        body: Home(),
       ),
     );
   }
